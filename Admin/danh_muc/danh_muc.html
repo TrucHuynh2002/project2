@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+<title>ADMIN</title>
+<!-- Required meta tags -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<link rel="stylesheet" href="../../css/cssadmin.css">
+</head>
+<body>           
+    <!-- menu admin -->
+    <div class="container-fluid">
+        <div class="row">
+            <nav class="col-md-3 col-lg-2 bg-dark text-white menu">
+                <div class="position-sticky pt-3 sidebar">
+                    <ul class="nav flex-column">
+                        <li class="nav-item">
+                            <h4> <i class='bx bx-building-house'> ADMIN </i></h4>                     
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="../danh_muc/danh_muc.html"><i class='bx bx-category'> Danh mục </i></a>                        
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="../hoa_don/hoa_don.html"><i class='bx bx-comment-dots'> Hóa đơn </i></a>                       
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="../san_pham/san_pham.html"><i class='bx bx-store-alt'> Sản phẩm </i></a>           
+                        </li>                                  
+                        <li class="nav-item">
+                            <a class="nav-link" href="../../index.html"><i class='bx bx-home-alt'> Về trang chủ </i></a>          
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+            <!-- nội dung admin -->
+            <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+                <div class="alert alert-success">
+                    <strong>
+                        <h3 style="text-align: center;">Danh mục</h3>
+                    </strong>
+                </div>
+
+                <div class="right">
+                    <table class="table table-light" id="ds_dm">
+                        <thead>
+                            <tr>
+                                <td>Mã danh mục</td>
+                                <td>Tên danh mục</td>
+                                <td><a name="" id="" class="btn btn-primary" href="../danh_muc/new.html" role="button">Thêm danh mục</a></td>
+                            </tr>
+                        </thead>                       
+                    </table>
+                </div>
+            </main>
+        </div>
+      </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+</html>
+<!-- DANH SÁCH DANH MỤC -->
+<script>
+    var url = "http://localhost:3000/danh_muc";
+    fetch(url)
+    .then(res => res.json())
+    .then(list_dm => {
+        list_dm.forEach(dm => {
+            var ds_dm = document.querySelector("#ds_dm").innerHTML += `
+            <tbody>
+                <tr>
+                    <td>${dm.id}</td>
+                    <td>${dm.ten_dm}</td>
+                    <td>
+                        <a href="../danh_muc/edit.html?id=${dm.id}"><button type="button" class="btn btn-outline-info">Sửa</button></a>
+                    </td>
+                    <td>
+                        <button type="button" class="btn btn-outline-info" onclick = "xoa_dm(${dm.id})">Xóa</button>
+                    </td>
+                </tr>
+            </tbody>
+            `            
+        })
+    })
+</script>
+<!-- XÓA DANH MỤC -->
+<script>
+    function xoa_dm(id) {
+        const hoi = confirm("Bạn muốn xóa nó không ?");
+        if(hoi == false) return;
+        var url = `http://localhost:3000/danh_muc/${id}`;
+        fetch(url, {method:"delete"})
+        .then(res => res.json())
+        .then(data => {
+            console.log(data);
+            alert ("Xóa thành công");           
+        })
+    }
+</script>

@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+<head>
+<title>ADMIN</title>
+<!-- Required meta tags -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="../../css/cssadmin.css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container-fluid">
+    <div class="row">
+        <nav class="col-md-3 col-lg-2 bg-dark text-white menu">
+            <div class="position-sticky pt-3 sidebar">
+                <ul class="nav flex-column">
+                    <li class="nav-item">
+                        <h4> <i class='bx bx-building-house'> ADMIN </i></h4>                     
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../danh_muc/danh_muc.html"><i class='bx bx-category'> Danh mục </i></a>                        
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../hoa_don/hoa_don.html"><i class='bx bx-comment-dots'> Hóa đơn </i></a>                       
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../san_pham/san_pham.html"><i class='bx bx-store-alt'> Sản phẩm </i></a>           
+                    </li>                  
+                    <li class="nav-item">
+                        <a class="nav-link" href="../../index.html"><i class='bx bx-home-alt'> Về trang chủ </i></a>          
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+            <div class="alert alert-danger">
+                <strong>
+                    <h4 style="text-align: center;">Thêm sản phẩm</h4>
+                </strong>
+            </div>
+
+            <div class="form-group">
+                <h5>Mã sản phẩm</h5>
+                <input class="form-control" disabled type="text" value="" id="ma">
+            </div>
+            <div class="form-group">
+                <h5>Tên sản phẩm</h5>
+                <input class="form-control" type="text" name="" id="ten">
+            </div>
+            <div class="form-group">
+                <h5>Giá</h5>
+                <input class="form-control" type="text" name="" id="gia">
+            </div>
+            <div class="form-group">
+                <h5>Chi tiết sản phẩm</h5>
+                <input class="form-control" type="text" name="" id="chi_tiet">
+            </div>
+            <div class="form-group">
+                <h5>Hình ảnh</h5>
+                <input class="form-control" type="text" name="" id="hinh_anh">
+            </div>
+            <div class="form-group">
+                <h5>Hình ảnh phụ 1</h5>
+                <input class="form-control" type="text" name="" id="hinh_anh_phu1">
+            </div>
+            <div class="form-group">
+                <h5>Hình ảnh phụ 2</h5>
+                <input class="form-control" type="text" name="" id="hinh_anh_phu2">
+            </div>
+            <div class="form-group">
+                <h5>Danh mục</h5>
+                <select name="cars" class="custom-select mb-3" id="loai_dm">
+                    <option value="1">IPhone</option>
+                    <option value="2">Samsung</option>
+                    <option value="3">Oppo</option>
+                    <option value="4">Vivo</option>
+                    <option value="5">Xiaomi</option>
+                </select>
+            </div>
+            <button type="button" id="btn_themsp" class="btn btn-primary btn-block" name="">Thêm sản phẩm</button>
+            <a class="btn btn-success btn-block" href="../san_pham/san_pham.html" role="button">Danh sách</a>
+        </main>
+    </div>
+    </div>
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+</html>
+<!-- THÊM SẢN PHẨM -->
+<script>
+    var btn_themsp = document.querySelector("#btn_themsp");
+    btn_themsp.onclick = function () {
+        var url = "http://localhost:3000/san_pham";
+        var sp ={
+            ten_sp: document.querySelector("#ten").value.trim(),
+            gia_sp: document.querySelector("#gia").value.trim(),
+            chi_tiet_sp: document.querySelector("#chi_tiet").value.trim(),
+            img: document.querySelector("#hinh_anh").value.trim(),
+            img_phu1: document.querySelector("#hinh_anh_phu1").value.trim(),
+            img_phu2: document.querySelector("#hinh_anh_phu2").value.trim(),
+            id_dm: document.querySelector("#loai_dm").value.trim()
+        }
+        options = {
+            method: "post",
+            body: JSON.stringify(sp),
+            headers: { 'Content-Type':'application/json' }
+        }
+        fetch(url, options)
+        .then(res => res.json())
+        .then(data => {
+            console.log("data= ",data);
+            alert("Đã thêm thành công");
+        })
+    }
+</script>

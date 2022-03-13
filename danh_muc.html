@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <!-- SITE TITTLE -->
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Classimax</title>
+  
+  <!-- FAVICON -->
+  <link href="img/favicon.png" rel="shortcut icon">
+  <!-- PLUGINS CSS STYLE -->
+  <!-- <link href="plugins/jquery-ui/jquery-ui.min.css" rel="stylesheet"> -->
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="plugins/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="plugins/bootstrap/css/bootstrap-slider.css">
+  <!-- Font Awesome -->
+  <link href="plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+  <!-- Owl Carousel -->
+  <link href="plugins/slick-carousel/slick/slick.css" rel="stylesheet">
+  <link href="plugins/slick-carousel/slick/slick-theme.css" rel="stylesheet">
+  <!-- Fancy Box -->
+  <link href="plugins/fancybox/jquery.fancybox.pack.css" rel="stylesheet">
+  <link href="plugins/jquery-nice-select/css/nice-select.css" rel="stylesheet">
+  <!-- CUSTOM CSS -->
+  <link href="css/style.css" rel="stylesheet">
+  <link rel="stylesheet" href="./css/cssdanhmuc.css">
+
+
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <![endif]-->
+
+</head>
+
+<body class="body-wrapper">
+
+<section>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<nav class="navbar navbar-expand-lg navbar-light navigation">
+					<a class="navbar-brand" href="index.html">
+						<img src="images/logo.png" alt="">
+					</a>
+					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+					 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+						<span class="navbar-toggler-icon"></span>
+					</button>
+					<div class="collapse navbar-collapse" id="navbarSupportedContent">
+						<ul class="navbar-nav ml-auto main-nav ">
+							<li class="nav-item active">
+								<a class="nav-link" href="index.html">Trang chủ</a>
+							</li>
+							<li class="nav-item dropdown dropdown-slide">
+								<a class="nav-link dropdown-toggle" href="danh_muc.html">
+									Sản phẩm
+								</a>
+							</li>
+							<li class="nav-item dropdown dropdown-slide">
+								<a class="nav-link dropdown-toggle" href="contact-us.html">
+									Liên hệ
+								</a>
+							</li>
+							<li class="nav-item dropdown dropdown-slide">
+								<a class="nav-link dropdown-toggle" href="about.html">
+									Giới thiệu
+								</a>								
+							</li>
+						</ul>
+                        <!-- Giỏ hàng -->
+                        <ul class="navbar-nav ml-auto mt-10">
+							<li class="nav-item">
+								<a class="nav-link login-button" href="cart.html">Giỏ hàng</a>
+							</li>
+						</ul>
+						<!-- ADMIN -->
+						<ul class="navbar-nav ml-auto mt-10">
+							<li class="nav-item">
+								<a class="nav-link login-button" href="./Admin/danh_muc/danh_muc.html">ADMIN</a>
+							</li>
+						</ul>
+					</div>
+				</nav>
+			</div>
+		</div>
+	</div>
+</section>
+<section class="page-search">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<!-- Advance Search -->
+				<div class="advance-search">
+					<form>
+						<div class="form-row">
+							<div class="form-group col-md-4">
+								<input type="text" class="form-control my-2 my-lg-0" id="inputtext4" placeholder="tên sản phẩm">
+							</div>
+							<div class="form-group col-md-3">
+								<input type="text" class="form-control my-2 my-lg-0" id="inputCategory4" placeholder="Danh mục">
+							</div>
+							<div class="form-group col-md-3">
+								<input type="text" class="form-control my-2 my-lg-0" id="inputLocation4" placeholder="giá">
+							</div>
+							<div class="form-group col-md-2">
+								
+								<button type="submit" class="btn btn-primary">Tìm kiếm</button>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<section class="section-sm">
+	<div class="container">		
+		<div class="row">
+			<div class="col-md-3">
+				<div class="category-sidebar">
+				<div class="widget category-list">
+					<h3 class="widget-header">Danh mục sản phẩm</h3>
+					<ul class="category-list cssdm" id="danhmuc">
+					</ul>
+				</div>
+				</div>
+			</div>
+
+			<div class="col-md-9">
+				<div class="category-search-filter">
+					<div class="row">
+						<div class="col-md-6">
+							<strong>Sắp xếp</strong>
+							<select>
+								<option value="1">Mới nhất</option>
+								<option value="2">Cũ nhất</option>
+							</select>
+						</div>					
+					</div>
+				</div>
+				
+	<div class="product-grid-list">
+		<div class="row mt-30" id="sanpham">
+		<!-- HIỆN SẢN PHẨM -->	
+		</div>						
+	</div>
+	</div>
+	</div>
+</div>
+</section>
+<footer class="footer-bottom">
+	<!-- Container Start -->
+	<div class="container">
+	  <div class="row">
+		<div class="col-sm-6 col-12">
+		  <!-- Copyright -->
+		  <div class="copyright">
+			<p>Copyright © <script>
+				var CurrentYear = new Date().getFullYear()
+				document.write(CurrentYear)
+			  </script>. All Rights Reserved</p>
+		  </div>
+		</div>
+		<div class="col-sm-6 col-12">
+		  <!-- Social Icons -->
+		  <ul class="social-media-icons text-right">
+			<li><a class="fa fa-facebook" href="https://www.facebook.com/" target="_blank"></a></li>
+			<li><a class="fa fa-twitter" href="#" target="_blank"></a></li>
+			<li><a class="fa fa-pinterest-p" href="#" target="_blank"></a></li>
+			<li><a class="fa fa-vimeo" href="#"></a></li>
+		  </ul>
+		</div>
+	  </div>
+	</div>
+	<!-- Container End -->
+	<!-- To Top -->
+	<div class="top-to">
+	  <a id="top" class="" href="#"><i class="fa fa-angle-up"></i></a>
+	</div>
+</footer>
+<a href=""></a>
+
+<!-- JAVASCRIPTS -->
+<script src="plugins/jQuery/jquery.min.js"></script>
+<script src="plugins/bootstrap/js/popper.min.js"></script>
+<script src="plugins/bootstrap/js/bootstrap.min.js"></script>
+<script src="plugins/bootstrap/js/bootstrap-slider.js"></script>
+  <!-- tether js -->
+<script src="plugins/tether/js/tether.min.js"></script>
+<script src="plugins/raty/jquery.raty-fa.js"></script>
+<script src="plugins/slick-carousel/slick/slick.min.js"></script>
+<script src="plugins/jquery-nice-select/js/jquery.nice-select.min.js"></script>
+<script src="plugins/fancybox/jquery.fancybox.pack.js"></script>
+<script src="plugins/smoothscroll/SmoothScroll.min.js"></script>
+<!-- google map -->
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCcABaamniA6OL5YvYSpB3pFMNrXwXnLwU&libraries=places"></script>
+<script src="plugins/google-map/gmap.js"></script>
+<script src="js/script.js"></script>
+</body>
+</html>
+<!-- DANH MỤC SẢN PHẨM -->
+<script>
+	var url = "http://localhost:3000/danh_muc";
+	fetch(url)
+	.then(danh_muc => danh_muc.json())
+	.then( danh_muc => {
+		dm_arr = danh_muc.map( dm => {
+			return `<li><a href="./danh_muc.html?id=${dm.id}">${dm.ten_dm}</a></li>`
+		})
+		var danhmuc = document.querySelector("#danhmuc").innerHTML += dm_arr.join('');
+	})
+</script>
+<!-- DANH SÁCH SẢN PHẨM --> 
+<script>
+	var id = 0;
+	var url_params = new URLSearchParams(location.href);
+	for(var val of url_params.values()){
+		id = val;
+	}
+	if(id == 0){
+		var url = "http://localhost:3000/san_pham";
+		fetch(url)
+		.then(san_pham => san_pham.json())
+		.then( san_pham => {
+			sp_arr = san_pham.map( sp => {
+				return `			
+				<div class="col-sm-12 col-lg-4 col-md-6">
+					<div class="product-item bg-light">
+						<div class="card">
+							<div class="thumb-content">
+								<a href="./chitiet_sp.html?id=${sp.id}">
+									<img class="card-img-top img-fluid" src="${sp.img}" alt="${sp.img}">
+								</a>
+							</div>
+							<div class="card-body css_sp">
+								<h4 class="card-title"><a href="./chitiet_sp.html?id=${sp.id}">${sp.ten_sp}</a></h4>		    
+								<div class="price"><b>${sp.gia_sp}<sup>đ</sup></b></div>	
+								<button type="button" class="btn btn-outline-primary css_button" 
+									onclick="them_vao_gio_hang(${sp.id}, '${sp.ten_sp}', ${sp.gia_sp}, '${sp.img}')">Mua ngay</button>																		
+							</div>
+						</div>
+					</div>
+				</div>
+				`
+			})
+			var sanpham = document.querySelector("#sanpham").innerHTML += sp_arr.join('');
+		})
+	}
+	else{
+		var url = `http://localhost:3000/san_pham?id_dm=${id}`;
+		fetch(url)
+		.then(san_pham => san_pham.json())
+		.then( san_pham => {
+			sp_arr = san_pham.map( sp => {
+				return `			
+				<div class="col-sm-12 col-lg-4 col-md-6">
+					<div class="product-item bg-light">
+						<div class="card">
+							<div class="thumb-content">
+								<a href="./chitiet_sp.html?id=${sp.id}">
+									<img class="card-img-top img-fluid" src="${sp.img}" alt="${sp.img}">
+								</a>
+							</div>
+							<div class="card-body css_sp">
+								<h4 class="card-title"><a href="./chitiet_sp.html?id=${sp.id}">${sp.ten_sp}</a></h4>		    
+								<div class="price"><b>${sp.gia_sp}<sup>đ</sup></b></div>	
+								<button type="button" class="btn btn-outline-primary css_button" 
+									onclick="them_vao_gio_hang(${sp.id}, '${sp.ten_sp}', ${sp.gia_sp}, '${sp.img}')">Mua ngay</button>																		
+							</div>
+						</div>
+					</div>
+				</div>
+				`
+			})
+			var sanpham = document.querySelector("#sanpham").innerHTML += sp_arr.join('');
+		})
+	}
+	
+</script>
+<!-- THÊM SẢN PHẨM VÀO GIỎ HÀNG -->
+<script>
+	function them_vao_gio_hang(id, ten, gia, hinh) {
+		var cart = JSON.parse(localStorage.getItem("cart"));
+		if(cart == null){
+			cart = [];
+			cart.push({id:id, ten:ten, gia:gia, hinh:hinh, so_luong:1})
+		}
+		else{
+			var item = cart.find( item => item.id === id);
+			if(item) item.so_luong++;
+			else cart.push({id:id, ten:ten, gia:gia, hinh:hinh, so_luong:1})
+		}
+		localStorage.setItem("cart", JSON.stringify(cart));
+		alert("Đã thêm vào giỏ hàng");
+	}
+</script>
